@@ -165,6 +165,10 @@ export default function NEXARecruitingSite() {
   const [retailVolume, setRetailVolume] = useState("")
   const [retailBps, setRetailBps] = useState("")
   const [nexaBps, setNexaBps] = useState("")
+  const [formName, setFormName] = useState("")
+  const [formEmail, setFormEmail] = useState("")
+  const [formCompany, setFormCompany] = useState("")
+  const [formGoals, setFormGoals] = useState("")
 
   const calculatorReady = hasCalculatorInputs(retailVolume, retailBps, nexaBps)
 
@@ -191,6 +195,17 @@ export default function NEXARecruitingSite() {
 
   const formatCurrency = (value) => USD_FORMATTER.format(value)
   const formatMillions = (value) => `${value.toFixed(1)}M`
+
+  const calendlyUrl = useMemo(() => {
+    const params = new URLSearchParams()
+    if (formName.trim()) params.set("name", formName.trim())
+    if (formEmail.trim()) params.set("email", formEmail.trim())
+    if (formCompany.trim()) params.set("a1", formCompany.trim())
+    if (formGoals.trim()) params.set("a2", formGoals.trim())
+
+    const query = params.toString()
+    return `https://calendly.com/aaviles-nexalending/30min${query ? `?${query}` : ""}`
+  }, [formName, formEmail, formCompany, formGoals])
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -662,13 +677,38 @@ export default function NEXARecruitingSite() {
 
           <div className="mt-10 rounded-[1.75rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
             <div className="grid gap-4 sm:grid-cols-2">
-              <input className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20" placeholder="Full Name" />
-              <input className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20" placeholder="Email" />
-              <input className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2" placeholder="Current Company" />
-              <textarea className="min-h-[140px] rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2" placeholder="Current production or goals" />
-              <button className="rounded-2xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100 sm:col-span-2">
+              <input
+                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
+                placeholder="Name"
+                value={formName}
+                onChange={(e) => setFormName(e.target.value)}
+              />
+              <input
+                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
+                placeholder="Email"
+                value={formEmail}
+                onChange={(e) => setFormEmail(e.target.value)}
+              />
+              <input
+                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
+                placeholder="Company"
+                value={formCompany}
+                onChange={(e) => setFormCompany(e.target.value)}
+              />
+              <textarea
+                className="min-h-[140px] rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
+                placeholder="Goals"
+                value={formGoals}
+                onChange={(e) => setFormGoals(e.target.value)}
+              />
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100 sm:col-span-2"
+              >
                 Request Conversation
-              </button>
+              </a>
             </div>
           </div>
         </div>
