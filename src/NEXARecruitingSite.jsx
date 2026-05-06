@@ -653,7 +653,7 @@ export default function NEXARecruitingSite() {
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
-              href="YOUR-NOTION-LINK"
+              href="https://guiltless-garden-fd7.notion.site/524c25b8458783b5b11b81d4f34c13e0?v=abdc25b8458783508088088d233ef80d&source=copy_link"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-600"
