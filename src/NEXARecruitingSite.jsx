@@ -637,7 +637,7 @@ export default function NEXARecruitingSite() {
   <div className="mx-auto max-w-5xl px-6 py-20 lg:px-8">
     <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-sm">
       <div className="grid gap-10 p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
-        
+
         <div>
           <div className="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">
             Free Resource
@@ -648,7 +648,7 @@ export default function NEXARecruitingSite() {
           </h2>
 
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            A clean and practical follow-up system designed to help loan officers stay organized, track conversations, and maintain consistency with referral partners and borrowers.
+            A simple and practical follow-up system designed to help loan officers stay organized, track conversations, and maintain consistency with referral partners and borrowers.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
