@@ -633,12 +633,6 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
-
-      <section id="faq" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Common questions</p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">The questions loan officers usually ask first</h2>
-        </div>
 <section className="border-y border-slate-200 bg-white">
   <div className="mx-auto max-w-5xl px-6 py-20 lg:px-8">
     <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-sm">
@@ -702,6 +696,12 @@ export default function NEXARecruitingSite() {
     </div>
   </div>
 </section>
+      <section id="faq" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Common questions</p>
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">The questions loan officers usually ask first</h2>
+        </div>
+
         <div className="mt-10 space-y-4">
           {FAQ_ITEMS.map((faq, index) => {
             const isOpen = openFaq === index
