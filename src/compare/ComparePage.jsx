@@ -55,6 +55,18 @@ export function ComparePage({ company: c }) {
         <div className="mt-8"><IncomeCalculator company={c} /></div>
       </section>
 
+      {c.friendsNote && (
+        <section className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-5 rounded-[2rem] border border-emerald-200 bg-emerald-50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{c.friendsNote.title}</h2>
+              <p className="mt-2 leading-7 text-slate-700">{c.friendsNote.body}</p>
+            </div>
+            <div className="shrink-0"><CtaButton cta={`compare_${c.slug}_friends`}>{c.friendsNote.cta}</CtaButton></div>
+          </div>
+        </section>
+      )}
+
       {c.kind === "bank" && (
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="rounded-[2rem] border border-indigo-200 bg-indigo-50 p-6 sm:p-8">

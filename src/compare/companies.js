@@ -45,6 +45,12 @@ export const companies = {
       return volumeM * 1_000_000 * (grossBps / 10_000) - loans * 695 - 79 * 12;
     },
     excludes: "Excludes Barrett's optional $650-per-file processing and credit report costs.",
+    /** Shown after the calculator — Andres's honest, no-pressure note. */
+    friendsNote: {
+      title: "If Barrett is the better fit, that's okay too",
+      body: "If Barrett piques your interest, let me know — I have friends over there you can chat with. My goal is to help you find the right home for your business, even if it isn't NEXA.",
+      cta: "Connect Me With Someone at Barrett",
+    },
     sources: [["Why Barrett — Barrett Financial's recruiting site", "https://www.whybarrett.com/why-barrett"]],
     pitch:
       "Barrett and NEXA are both broker models where you control your pricing and shop multiple lenders. We'll be straight with you: on fees alone, Barrett's flat $695 per file usually costs less than NEXA's 54 bps. The difference is everything around the fee — and that's what this page walks through.",
