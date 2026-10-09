@@ -16,6 +16,7 @@ const NAV_LINKS = [
   ["#comparison", "Compare"],
   ["#calculator", "Calculator"],
   ["#faq", "FAQ"],
+  ["/compare", "Compare Lenders"],
 ]
 
 const HERO_FEATURES = [
