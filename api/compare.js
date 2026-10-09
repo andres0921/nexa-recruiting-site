@@ -95,7 +95,7 @@ function normalize(raw, searchedUrls) {
     found: raw.found === true,
     name: shortName(raw.name),
     kind: ["bank", "retail", "broker"].includes(raw.kind) ? raw.kind : "unknown",
-    payModel: str(raw.payModel, 160),
+    payModel: str(raw.payModel, 320),
     companyRetainBps: num(raw.companyRetainBps, 500),
     perFileFee: num(raw.perFileFee, 10000),
     monthlyFee: num(raw.monthlyFee, 5000),
