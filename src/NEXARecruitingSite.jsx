@@ -402,6 +402,9 @@ export default function NEXARecruitingSite() {
           <p className="mt-5 text-lg leading-8 text-slate-600">
             Many loan officers start in traditional retail environments. Over time, experienced originators begin exploring models that offer more flexibility, transparency, and scalability.
           </p>
+          <a href="/compare" className="mt-4 inline-block text-sm font-semibold text-indigo-700 underline-offset-4 hover:underline">
+            See NEXA compared with Barrett, Chase, Rocket Mortgage &amp; PNC →
+          </a>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 md:items-stretch">

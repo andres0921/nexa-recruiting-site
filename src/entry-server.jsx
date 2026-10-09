@@ -1,31 +1,20 @@
+/* eslint-disable react-refresh/only-export-components -- build-time server entry, not a hot-reloaded module */
 import { StrictMode } from "react"
 import { renderToString } from "react-dom/server"
-import App from "./App.jsx"
-import { FAQ_ITEMS } from "./faq.js"
+import { routes, SITE_URL, OG_IMAGE } from "./routes.jsx"
 
 /**
- * Used only at build time (see prerender.js) to bake the page's HTML into
- * dist/index.html, so search engines and link previews see the real content
- * without having to run JavaScript first. The browser then hydrates it.
+ * Used only at build time (see prerender.js) to bake each page's HTML, so
+ * search engines and link previews see the real content without running
+ * JavaScript first. The browser then hydrates it (see main.jsx).
  */
-export function render() {
+export { routes, SITE_URL, OG_IMAGE }
+
+export function render(route) {
+  const { Component } = route
   return renderToString(
     <StrictMode>
-      <App />
+      <Component />
     </StrictMode>,
   )
-}
-
-/** FAQPage structured data, generated from the same FAQ list the page shows. */
-export function faqJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  }
-  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`
 }

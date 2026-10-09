@@ -1,11 +1,13 @@
 import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import { findRoute } from './routes.jsx'
+
+const { Component } = findRoute(window.location.pathname)
 
 hydrateRoot(
   document.getElementById('root'),
   <StrictMode>
-    <App />
+    <Component />
   </StrictMode>,
 )
