@@ -108,11 +108,11 @@ export const companyList = [companies.barrett, companies.chase, companies.rocket
 export const bankLicensingNote =
   "Bank loan officers are federally registered in NMLS rather than state-licensed. To join a state-licensed company like NEXA, you'll apply for a state license. If you've been registered continuously for the year before you apply, temporary authority can let you keep originating for up to 120 days while you finish the SAFE test, pre-licensing education, and state requirements.";
 
-/** NEXA facts shown on every comparison page. NEXA100 wording follows NMP's Feb 2026 report — update if terms change. */
+/** NEXA facts shown on every comparison page. NEXA100 wording confirmed by Andres (Oct 2026). */
 export const nexaFacts = [
   ["Model", "Broker plus NEXA's own lending — shop multiple lenders for each borrower"],
   ["Standard plan", `NEXA keeps ${nexa.standardRetainBps} bps per loan; you keep the rest of your comp`],
-  ["NEXA100", "A program that returns NEXA's share to you, as reported, through a growth and marketing ledger for business expenses — with eligibility conditions. Ask Andres for current terms."],
+  ["NEXA100", "The 54 bps that would go to NEXA goes into your operational budget instead, which you can use to get reimbursed for business expenses. Ask Andres about eligibility."],
   ["Brand", "Market under your own name and grow your personal brand"],
   ["Growth", "Earn on production from loan officers you bring to NEXA"],
 ]

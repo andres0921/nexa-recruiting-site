@@ -9,7 +9,7 @@ export function compareFaqs(c) {
   const faqs = [
     {
       q: "How does loan officer comp work at NEXA?",
-      a: `On NEXA's standard plan, NEXA keeps ${nexa.standardRetainBps} bps per loan and you keep the rest of your compensation. NEXA also offers NEXA100, which, as reported, returns NEXA's share to you through a growth and marketing ledger for business expenses and comes with eligibility conditions. Andres can walk you through the current terms and whether you'd qualify.`,
+      a: `On NEXA's standard plan, NEXA keeps ${nexa.standardRetainBps} bps per loan and you keep the rest of your compensation. On NEXA100, those 54 bps go into your operational budget instead, which you can use to get reimbursed for business expenses only — so it's money for running and growing your business rather than extra take-home pay. Andres can walk you through whether you'd qualify.`,
     },
   ]
   if (c.kind === "broker") {

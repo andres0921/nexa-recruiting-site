@@ -32,7 +32,7 @@ export function CompareHub() {
               <tr className="border-t border-slate-100 bg-indigo-50/60">
                 <th scope="row" className="px-4 py-3 font-semibold">NEXA Lending</th>
                 <td className="px-4 py-3">Broker plus NEXA's own lending</td>
-                <td className="px-4 py-3">{nexa.standardRetainBps} bps per loan on the standard plan; NEXA100 program with conditions</td>
+                <td className="px-4 py-3">{nexa.standardRetainBps} bps per loan on the standard plan; on NEXA100, those bps fund your business-expense budget</td>
               </tr>
               {companyList.map((c) => (
                 <tr key={c.slug} className="border-t border-slate-100">
