@@ -12,9 +12,9 @@ export const nexa = {
   name: "NEXA Lending",
   /** What NEXA keeps per loan on the standard plan, in bps. */
   standardRetainBps: 54,
-  /** Default gross comp per loan shown in the calculator, in bps. CONFIRM WITH ANDRES. */
+  /** Default gross comp per loan in the calculator (bps). 275 is the example NEXA's COO used (NMP, Feb 2026); LOs can change it. */
   defaultGrossBps: 275,
-  /** Monthly fee to show, or null if none/unconfirmed. CONFIRM WITH ANDRES. */
+  /** Monthly fee to show, or null if unconfirmed. */
   monthlyFee: null,
 };
 
@@ -108,11 +108,14 @@ export const companyList = [companies.barrett, companies.chase, companies.rocket
 export const bankLicensingNote =
   "Bank loan officers are federally registered in NMLS rather than state-licensed. To join a state-licensed company like NEXA, you'll apply for a state license. If you've been registered continuously for the year before you apply, temporary authority can let you keep originating for up to 120 days while you finish the SAFE test, pre-licensing education, and state requirements.";
 
-/** NEXA facts shown on every comparison page. UPDATE NEXA100 WORDING ONCE CONFIRMED. */
+/** NEXA facts shown on every comparison page. NEXA100 wording follows NMP's Feb 2026 report — update if terms change. */
 export const nexaFacts = [
   ["Model", "Broker plus NEXA's own lending — shop multiple lenders for each borrower"],
   ["Standard plan", `NEXA keeps ${nexa.standardRetainBps} bps per loan; you keep the rest of your comp`],
-  ["NEXA100", "A path to keeping 100% of your comp — ask Andres for the current terms"],
+  ["NEXA100", "A program that returns NEXA's share to you, as reported, through a growth and marketing ledger for business expenses — with eligibility conditions. Ask Andres for current terms."],
   ["Brand", "Market under your own name and grow your personal brand"],
   ["Growth", "Earn on production from loan officers you bring to NEXA"],
 ]
+
+/** Source for NEXA's comp structure, listed on every comparison page. */
+export const nexaSource = ["NMP — NEXA comp structure as described by NEXA's COO (Feb 2026)", "https://nationalmortgageprofessional.com/news/lo-uncomplicated-02222026"]

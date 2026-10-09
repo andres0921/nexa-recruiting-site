@@ -1,6 +1,6 @@
 import { CompareLayout, CtaButton } from "./Layout.jsx"
 import { IncomeCalculator } from "./IncomeCalculator.jsx"
-import { ASOF, nexaFacts, bankLicensingNote } from "./companies.js"
+import { ASOF, nexaFacts, nexaSource, bankLicensingNote } from "./companies.js"
 import { compareFaqs } from "./faqs.js"
 
 function FactList({ title, facts, highlight = false }) {
@@ -89,7 +89,7 @@ export function ComparePage({ company: c }) {
       <section className="mx-auto max-w-6xl px-4 py-6 text-xs leading-6 text-slate-500 sm:px-6 lg:px-8">
         <h2 className="text-sm font-semibold text-slate-700">Sources and notes</h2>
         <ul className="mt-2 list-disc pl-5">
-          {c.sources.map(([label, href]) => (
+          {[nexaSource, ...c.sources].map(([label, href]) => (
             <li key={href}><a href={href} target="_blank" rel="noreferrer nofollow" className="underline underline-offset-2">{label}</a></li>
           ))}
         </ul>
