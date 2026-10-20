@@ -704,11 +704,10 @@ export default function NEXARecruitingSite() {
                   <span className="text-lg font-semibold text-slate-900">{faq.q}</span>
                   <ChevronDown className={`h-5 w-5 text-slate-500 transition ${isOpen ? "rotate-180" : ""}`} />
                 </button>
-                {isOpen && (
-                  <div className="border-t border-slate-100 px-6 pb-6 pt-4 text-slate-600">
-                    <p className="max-w-3xl leading-7">{faq.a}</p>
-                  </div>
-                )}
+                {/* Always in the HTML (so search engines read every answer); hidden until opened. */}
+                <div hidden={!isOpen} className="border-t border-slate-100 px-6 pb-6 pt-4 text-slate-600">
+                  <p className="max-w-3xl leading-7">{faq.a}</p>
+                </div>
               </div>
             )
           })}
