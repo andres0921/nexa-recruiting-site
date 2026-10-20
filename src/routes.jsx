@@ -6,7 +6,8 @@ import { compareFaqs } from "./compare/faqs.js"
 import { ASOF, companyList } from "./compare/companies.js"
 
 export const SITE_URL = "https://nexavsretail.com"
-export const OG_IMAGE = `${SITE_URL}/NEXAMortgage.png`
+export const OG_IMAGE = `${SITE_URL}/og-image.png`
+export const LOGO = `${SITE_URL}/NEXAMortgage.png`
 
 export const author = {
   "@type": "Person",
@@ -35,11 +36,11 @@ export const routes = [
   {
     path: "/",
     file: "index.html",
-    title: "NEXA vs Retail | Why Loan Officers Are Moving to NEXA Lending",
+    title: "Broker vs Retail Loan Officer Pay | NEXA vs Retail",
     description:
-      "A side-by-side look at the traditional retail model vs. the NEXA Lending model for loan officers: compensation, support, autonomy, and building your own brand. Run the numbers and start a no-pressure conversation with Andres Aviles.",
+      "Retail vs. broker for loan officers: on NEXA Lending's standard plan, NEXA keeps 54 bps per loan and you keep the rest. Compare comp, support, and branding, run your numbers, and book a no-pressure call with Andres Aviles.",
     ogDescription:
-      "Retail vs. the NEXA model, side by side: compensation, support, autonomy, and your own brand. For loan officers who want more.",
+      "What loan officers actually keep at a retail lender vs. NEXA Lending — with a calculator for your own volume and bps.",
     Component: App,
     jsonLd: [
       {
@@ -47,9 +48,9 @@ export const routes = [
         "@type": "WebPage",
         "@id": `${SITE_URL}/#webpage`,
         url: `${SITE_URL}/`,
-        name: "NEXA vs Retail | Why Loan Officers Are Moving to NEXA Lending",
+        name: "Broker vs Retail Loan Officer Pay | NEXA vs Retail",
         inLanguage: "en-US",
-        about: { "@type": "Organization", name: "NEXA Mortgage, LLC", alternateName: "NEXA Lending", logo: OG_IMAGE },
+        about: { "@type": "Organization", name: "NEXA Mortgage, LLC", alternateName: "NEXA Lending", logo: LOGO },
         author,
       },
       faqSchema(FAQ_ITEMS),

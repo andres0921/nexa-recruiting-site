@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
 import { FAQ_ITEMS } from "./faq.js"
+import { nexa } from "./compare/companies.js"
 import {
   ArrowRight,
   Briefcase,
@@ -20,9 +21,9 @@ const NAV_LINKS = [
 ]
 
 const HERO_FEATURES = [
-  [Calculator, "Educate", "Understand the model"],
-  [Briefcase, "Recruit", "Attract aligned LOs"],
-  [TrendingUp, "Grow", "Scale your production"],
+  [Calculator, "Compare", "Retail vs. broker comp"],
+  [Briefcase, "Your brand", "Market under your name"],
+  [TrendingUp, "Grow", "Build a team if you want"],
 ]
 
 const HERO_REASONS = [
@@ -209,7 +210,7 @@ export default function NEXARecruitingSite() {
           <a href="#top" className="flex items-end gap-4">
             <img
               src="/NEXAMortgage.png"
-              alt="NEXA Mortgage"
+              alt="NEXA Lending"
               className="h-14 w-auto object-contain lg:h-[4.5rem]"
             />
             <div className="flex flex-col justify-end pb-1 leading-none">
@@ -288,11 +289,11 @@ export default function NEXARecruitingSite() {
             </div>
 
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              The platform serious loan officers move to when they want more control.
+              Retail vs. broker: what loan officers actually keep at NEXA.
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              If you're a producing loan officer exploring what your next level could look like, NEXA Lending offers a model designed for autonomy, scalability, and stronger economics.
+              If you're a producing loan officer wondering whether the broker model pays better, here's the honest version. On NEXA's standard plan, NEXA keeps {nexa.standardRetainBps} bps per loan and the rest of your comp is yours, with multiple lenders to shop and your own brand.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -762,6 +763,22 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <p>
+            NEXA vs Retail · <a href="https://www.andresaviles.com" className="font-semibold text-slate-900 hover:text-indigo-600">Andres Aviles</a>, NMLS #2640511 · NEXA Lending
+          </p>
+          <nav className="flex flex-wrap gap-4">
+            <a href="#faq" className="hover:text-indigo-600">FAQ</a>
+            <a href="/compare" className="hover:text-indigo-600">Compare lenders</a>
+            <a href="#apply" className="font-semibold text-slate-900 hover:text-indigo-600">Book a call</a>
+          </nav>
+        </div>
+        <p className="mx-auto max-w-7xl px-6 pb-24 text-xs text-slate-500 lg:px-8">
+          For mortgage professionals; not an offer to lend. Income examples are illustrations, not guarantees.
+        </p>
+      </footer>
     </div>
   )
 }

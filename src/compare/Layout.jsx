@@ -34,7 +34,7 @@ export function CompareLayout({ crumbs = [], children }) {
       <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <a href="/" className="flex items-center">
-            <img src="/NEXAMortgage.png" alt="NEXA Mortgage" className="h-10 w-auto object-contain" />
+            <img src="/NEXAMortgage.png" alt="NEXA Lending" className="h-10 w-auto object-contain" />
           </a>
           <nav className="flex items-center gap-5 text-sm font-medium text-slate-600">
             <a href="/" className="hidden transition hover:text-indigo-600 sm:inline">Why NEXA</a>
