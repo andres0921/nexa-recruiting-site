@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { FAQ_ITEMS } from "./faq.js"
 import { nexa } from "./compare/companies.js"
 import {
@@ -193,16 +193,24 @@ export default function NEXARecruitingSite() {
     return `https://calendly.com/aaviles-nexalending/30min${query ? `?${query}` : ""}`
   }, [formName, formEmail, formCompany, formGoals])
 
+  const [applyInView, setApplyInView] = useState(false)
+  useEffect(() => {
+    const el = document.getElementById("apply")
+    if (!el || !("IntersectionObserver" in window)) return undefined
+    const observer = new IntersectionObserver(([entry]) => setApplyInView(entry.isIntersecting), { threshold: 0.15 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <a
-        href="https://loanofficersupport.com/r/Andres27520"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-2xl ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:bg-indigo-600"
+        href="#apply"
+        aria-hidden={applyInView}
+        tabIndex={applyInView ? -1 : 0}
+        className={`${applyInView ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"} fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-2xl ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:bg-indigo-600 duration-300`}
       >
-        <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
-        Switch Now
+        Talk to Andres
         <ArrowRight className="h-4 w-4" />
       </a>
 
@@ -761,6 +769,18 @@ export default function NEXARecruitingSite() {
               </a>
             </div>
           </div>
+
+          <p className="mt-6 text-center text-sm text-indigo-100">
+            Already decided NEXA is the right fit?{" "}
+            <a
+              href="https://loanofficersupport.com/r/Andres27520"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-white underline underline-offset-4 hover:text-indigo-200"
+            >
+              Start your NEXA application
+            </a>
+          </p>
         </div>
       </section>
 
