@@ -11,6 +11,7 @@ import {
   TrendingUp,
   X,
 } from "lucide-react"
+import LicenseNotice from "./LicenseNotice"
 
 const NAV_LINKS = [
   ["#why-nexa", "Why NEXA"],
@@ -774,6 +775,7 @@ export default function NEXARecruitingSite() {
             <a href="#apply" className="font-semibold text-slate-900 hover:text-indigo-600">Book a call</a>
           </nav>
         </div>
+        <LicenseNotice />
         <p className="mx-auto max-w-7xl px-6 pb-24 text-xs text-slate-500 lg:px-8">
           For mortgage professionals; not an offer to lend. Income examples are illustrations, not guarantees.
         </p>

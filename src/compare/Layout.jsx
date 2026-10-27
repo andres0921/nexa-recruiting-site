@@ -1,3 +1,4 @@
+import LicenseNotice from "../LicenseNotice"
 export const CALENDLY_URL = "https://calendly.com/aaviles-nexalending/30min"
 
 function track(cta) {
@@ -65,13 +66,14 @@ export function CompareLayout({ crumbs = [], children }) {
 
       <footer className="mt-20 border-t border-slate-200">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 text-sm text-slate-500 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <span>NEXA vs Retail — loan officer growth platform</span>
+          <span>NEXA vs Retail, a growth platform for loan officers</span>
           <div className="flex flex-wrap gap-4">
             <a href="/" className="transition hover:text-slate-900">Why NEXA</a>
             <a href="/compare" className="transition hover:text-slate-900">Compare lenders</a>
             <a href="https://www.andresaviles.com" className="transition hover:text-slate-900">Andres Aviles · NMLS #2640511</a>
           </div>
         </div>
+        <LicenseNotice className="max-w-6xl px-4 sm:px-6" />
       </footer>
     </div>
   )
