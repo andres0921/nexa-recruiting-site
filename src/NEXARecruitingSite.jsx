@@ -693,6 +693,44 @@ export default function NEXARecruitingSite() {
     </div>
   </div>
 </section>
+      <section id="meet-andres" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:items-start">
+          <div className="flex justify-center lg:block">
+            <div className="flex h-36 w-36 items-center justify-center rounded-full bg-gradient-to-br from-slate-950 to-indigo-700 text-4xl font-semibold tracking-wide text-white ring-8 ring-indigo-50">
+              AA
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Meet Andres</p>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">A loan officer who came from the agent side</h2>
+            <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600">
+              <p>
+                I've been a Realtor in DFW since 2016, and in 2025 I added my mortgage license with NEXA Lending. Years on the agent side taught me what Realtors actually want from a loan officer: quick answers, clear updates, and loans that close on time.
+              </p>
+              <p>
+                Being a broker is what lets me deliver that. Instead of one bank's menu, I can shop the loan across wholesale lenders and find the one that fits the borrower. That's the difference I'd want you to see for yourself.
+              </p>
+              <p>
+                If you're at a retail lender and wondering what your pay and pricing could look like here, I'm happy to walk through your real numbers with you. No pressure. Just a clear picture so you can make the call that's right for you.
+              </p>
+            </div>
+            <ul className="mt-8 flex flex-wrap gap-3">
+              {["Loan officer since 2025", "Realtor since 2016", "English and Spanish", "Based in DFW"].map((f) => (
+                <li key={f} className="rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-900">{f}</li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-slate-500">
+              Andres Aviles · Loan Officer, NEXA Lending · NMLS #2640511 · Realtor, AXEN Realty · TREC #0680266
+            </p>
+            <a
+              href="#apply"
+              className="mt-8 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5"
+            >
+              Talk to Andres
+            </a>
+          </div>
+        </div>
+      </section>
       <section id="faq" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Common questions</p>
