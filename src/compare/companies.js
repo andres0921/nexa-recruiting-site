@@ -6,7 +6,7 @@
  * the calculator asks the loan officer for their own number instead.
  */
 
-export const ASOF = "October 2026";
+export const ASOF = "November 2026";
 
 export const nexa = {
   name: "NEXA Lending",
@@ -80,12 +80,15 @@ export const companies = {
     model: "High-volume retail lender — company-generated leads, base pay plus commission",
     facts: [
       ["Model", "Retail loan officer, W-2 employee"],
-      ["Pay", "Base salary plus commission, per Rocket's job postings — amounts vary"],
+      ["Pay", "Base pay plus an uncapped sales incentive, per Rocket's job postings (amounts not listed)"],
       ["Leads", "Company-generated leads, often handled over the phone"],
       ["Products", "Rocket's own loan products and pricing"],
       ["Licensing", "State-licensed (Rocket is a non-bank lender)"],
     ],
-    sources: [["Rocket Mortgage loan officer job posting", "https://structuredfinance.org/jobs/nmls-licensed-loan-officer-rocket-mortgage-4/"]],
+    sources: [
+      ["Rocket Mortgage loan officer job posting", "https://structuredfinance.org/jobs/nmls-licensed-loan-officer-rocket-mortgage-4/"],
+      ["Rocket Mortgage Senior Loan Officer posting, Coppell, TX (MBA Career Center, Oct 2026)", "https://jobs.mba.org/job/senior-mortgage-loan-officer-cypress-waters-texas/81890768"],
+    ],
     pitch:
       "Rocket is built around volume: the company generates the leads, sets the pricing, and pays a base plus commission. That can be a great place to learn. At NEXA, you're building your own book of business and referral partners, with access to multiple lenders and more control over what you earn per loan.",
   },

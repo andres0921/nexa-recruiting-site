@@ -38,9 +38,9 @@ export const routes = [
     file: "index.html",
     title: "Broker vs Retail Loan Officer Pay | NEXA vs Retail",
     description:
-      "Retail vs. broker for loan officers: on NEXA Lending's standard plan, NEXA keeps 54 bps per loan and you keep the rest. Compare comp, support, and branding, run your numbers, and book a no-pressure call with Andres Aviles.",
+      "Retail vs. broker for loan officers: on NEXA Lending's standard plan, NEXA keeps 54 bps per loan and you keep the rest. Compare comp and run your numbers.",
     ogDescription:
-      "What loan officers actually keep at a retail lender vs. NEXA Lending — with a calculator for your own volume and bps.",
+      "What loan officers actually keep at a retail lender vs. NEXA Lending, with a calculator for your own volume and bps.",
     Component: App,
     jsonLd: [
       {
@@ -82,8 +82,8 @@ const webPage = (path, name, description) => ({
 routes.push({
   path: "/compare",
   file: "compare.html",
-  title: "Compare Mortgage Companies for Loan Officers: NEXA vs Barrett, Chase, Rocket & PNC",
-  description: `An honest look at where loan officers keep more: NEXA Lending compared with Barrett Financial, Chase, Rocket Mortgage, and PNC — comp models, fees, licensing, and a calculator. Updated ${ASOF}.`,
+  title: "Compare LO Comp: NEXA vs Barrett, Chase, Rocket & PNC",
+  description: `Where loan officers keep more: NEXA Lending vs Barrett Financial, Chase, Rocket Mortgage, and PNC. Comp models, fees, licensing, and a calculator.`,
   Component: CompareHub,
   jsonLd: [
     webPage("/compare", "Compare Mortgage Companies for Loan Officers", "Loan officer comp and model comparison."),
@@ -93,8 +93,10 @@ routes.push({
 
 for (const c of companyList) {
   const path = `/compare/${c.slug}`
-  const title = `NEXA vs ${c.name} for Loan Officers: Comp & Model Compared (${ASOF.split(" ")[1]})`
-  const description = `Thinking about leaving ${c.name}? Compare loan officer comp, fees, licensing, and control at NEXA Lending vs ${c.name}, with a calculator for your own numbers. Updated ${ASOF}.`
+  const year = ASOF.split(" ")[1]
+  const fullTitle = `NEXA vs ${c.name}: Loan Officer Comp Compared (${year})`
+  const title = fullTitle.length <= 60 ? fullTitle : `NEXA vs ${c.name}: LO Comp Compared (${year})`
+  const description = `Thinking about leaving ${c.name}? Compare loan officer comp, fees, and licensing at NEXA Lending, with a calculator for your own numbers.`
   routes.push({
     path,
     file: `compare/${c.slug}.html`,
