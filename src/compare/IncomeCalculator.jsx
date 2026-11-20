@@ -51,7 +51,7 @@ export function IncomeCalculator({ company }) {
 
   const rows = [
     { name: isBroker ? company.name : `${company.name} (your current comp)`, value: theirs },
-    { name: "NEXA — standard plan", value: nexaYear, nexa: true },
+    { name: "NEXA, standard plan", value: nexaYear, nexa: true },
   ]
   const best = Math.max(...rows.map((r) => r.value))
 
@@ -66,7 +66,7 @@ export function IncomeCalculator({ company }) {
             value={currentBps}
             onChange={setCurrentBps}
             suffix="bps"
-            hint="Replace with your real number — retail pay isn't published"
+            hint="Replace with your real number. Retail pay isn't published"
           />
         )}
         <Field
@@ -106,7 +106,7 @@ export function IncomeCalculator({ company }) {
         <p className="mt-4 text-sm text-slate-700">
           To match your current income at NEXA, you'd need about{" "}
           <span className="font-semibold">${volumeToMatch.toFixed(1)}M</span> in yearly volume
-          {volumeToMatch < v ? ` — about $${(v - volumeToMatch).toFixed(1)}M less than today.` : "."}
+          {volumeToMatch < v ? `, about $${(v - volumeToMatch).toFixed(1)}M less than today.` : "."}
         </p>
       )}
 

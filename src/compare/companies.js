@@ -48,39 +48,39 @@ export const companies = {
     /** Shown after the calculator — Andres's honest, no-pressure note. */
     friendsNote: {
       title: "If Barrett is the better fit, that's okay too",
-      body: "If Barrett piques your interest, let me know — I have friends over there you can chat with. My goal is to help you find the right home for your business, even if it isn't NEXA.",
+      body: "If Barrett piques your interest, let me know. I have friends over there you can chat with. My goal is to help you find the right home for your business, even if it isn't NEXA.",
       cta: "Connect Me With Someone at Barrett",
     },
-    sources: [["Why Barrett — Barrett Financial's recruiting site", "https://www.whybarrett.com/why-barrett"]],
+    sources: [["Why Barrett: Barrett Financial's recruiting site", "https://www.whybarrett.com/why-barrett"]],
     pitch:
-      "Barrett and NEXA are both broker models where you control your pricing and shop multiple lenders. We'll be straight with you: on fees alone, Barrett's flat $695 per file usually costs less than NEXA's 54 bps. The difference is everything around the fee — and that's what this page walks through.",
+      "Barrett and NEXA are both broker models where you control your pricing and shop multiple lenders. We'll be straight with you: on fees alone, Barrett's flat $695 per file usually costs less than NEXA's 54 bps. The difference is everything around the fee, and that's what this page walks through.",
   },
   chase: {
     slug: "chase",
     name: "Chase Home Lending",
     short: "Chase",
     kind: "bank",
-    model: "Bank retail lending — one lender's products, bank-set pricing",
+    model: "Bank retail lending: one lender's products, bank-set pricing",
     facts: [
       ["Model", "Retail loan officer at a bank, W-2 employee"],
       ["Products", "Chase's own loan products and pricing"],
-      ["Pay", "Varies by loan officer and isn't published — enter yours in the calculator"],
+      ["Pay", "Varies by loan officer and isn't published. Enter yours in the calculator"],
       ["Brand", "Chase's brand and marketing rules"],
       ["Licensing", "Bank loan officers are federally registered in NMLS, not state-licensed"],
     ],
     sources: [["NMLS temporary authority overview (Montana DBFI)", "https://banking.mt.gov/MortgageConsumerFinance/TAO"]],
     pitch:
-      "At a bank like Chase, you get a big brand, steady benefits, and a built-in customer base — but you sell one lender's products at the bank's pricing, under the bank's brand. At NEXA, you shop multiple lenders for your borrower, build your own brand, and have more control over your comp.",
+      "At a bank like Chase, you get a big brand, steady benefits, and a built-in customer base, but you sell one lender's products at the bank's pricing, under the bank's brand. At NEXA, you shop multiple lenders for your borrower, build your own brand, and have more control over your comp.",
   },
   rocket: {
     slug: "rocket-mortgage",
     name: "Rocket Mortgage",
     short: "Rocket",
     kind: "retail",
-    model: "High-volume retail lender — company-generated leads, base pay plus commission",
+    model: "High-volume retail lender: company-generated leads, base pay plus commission",
     facts: [
       ["Model", "Retail loan officer, W-2 employee"],
-      ["Pay", "Base salary plus commission, per Rocket's job postings — amounts vary"],
+      ["Pay", "Base salary plus commission, per Rocket's job postings; amounts vary"],
       ["Leads", "Company-generated leads, often handled over the phone"],
       ["Products", "Rocket's own loan products and pricing"],
       ["Licensing", "State-licensed (Rocket is a non-bank lender)"],
@@ -94,17 +94,17 @@ export const companies = {
     name: "PNC Mortgage",
     short: "PNC",
     kind: "bank",
-    model: "Bank retail lending — one lender's products, bank-set pricing",
+    model: "Bank retail lending: one lender's products, bank-set pricing",
     facts: [
       ["Model", "Retail loan officer at a bank, W-2 employee"],
       ["Products", "PNC's own loan products and pricing"],
-      ["Pay", "Varies by loan officer and isn't published — enter yours in the calculator"],
+      ["Pay", "Varies by loan officer and isn't published. Enter yours in the calculator"],
       ["Brand", "PNC's brand and marketing rules"],
       ["Licensing", "Bank loan officers are federally registered in NMLS, not state-licensed"],
     ],
     sources: [["NMLS temporary authority overview (Montana DBFI)", "https://banking.mt.gov/MortgageConsumerFinance/TAO"]],
     pitch:
-      "At a bank like PNC, you have a recognizable brand and bank customers to work with — but you're limited to one lender's products and pricing. At NEXA, you can shop multiple lenders for each borrower, market under your own name, and have more say in your comp.",
+      "At a bank like PNC, you have a recognizable brand and bank customers to work with, but you're limited to one lender's products and pricing. At NEXA, you can shop multiple lenders for each borrower, market under your own name, and have more say in your comp.",
   },
 };
 
@@ -116,7 +116,7 @@ export const bankLicensingNote =
 
 /** NEXA facts shown on every comparison page. NEXA100 wording confirmed by Andres (Oct 2026). */
 export const nexaFacts = [
-  ["Model", "Broker plus NEXA's own lending — shop multiple lenders for each borrower"],
+  ["Model", "Broker plus NEXA's own lending: shop multiple lenders for each borrower"],
   ["Standard plan", `NEXA keeps ${nexa.standardRetainBps} bps per loan; you keep the rest of your comp`],
   ["NEXA100", "The 54 bps that would go to NEXA goes into your operational budget instead, which you can use to get reimbursed for business expenses. Ask Andres about eligibility."],
   ["Brand", "Market under your own name and grow your personal brand"],
@@ -124,4 +124,4 @@ export const nexaFacts = [
 ]
 
 /** Source for NEXA's comp structure, listed on every comparison page. */
-export const nexaSource = ["NMP — NEXA comp structure as described by NEXA's COO (Feb 2026)", "https://nationalmortgageprofessional.com/news/lo-uncomplicated-02222026"]
+export const nexaSource = ["NMP: NEXA comp structure as described by NEXA's COO (Feb 2026)", "https://nationalmortgageprofessional.com/news/lo-uncomplicated-02222026"]

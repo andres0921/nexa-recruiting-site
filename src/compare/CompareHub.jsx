@@ -11,7 +11,7 @@ export function CompareHub() {
           Compare mortgage companies: where loan officers keep more
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-          Retail banks, high-volume lenders, and brokers all pay loan officers differently — and most don't publish
+          Retail banks, high-volume lenders, and brokers all pay loan officers differently, and most don't publish
           it. Here's an honest look at NEXA next to the companies loan officers ask about most, with a calculator that
           uses your real numbers. Where another company comes out ahead on fees, we'll show you that too.
         </p>

@@ -92,7 +92,7 @@ export function ComparePage({ company: c }) {
         <div className="rounded-[2rem] bg-gradient-to-br from-slate-950 via-indigo-700 to-indigo-600 px-6 py-12 text-center text-white sm:px-12">
           <h2 className="text-3xl font-semibold tracking-tight">Curious what your business could look like at NEXA?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-indigo-100">
-            Bring your real numbers. Andres will give you the honest version — even if the answer is to stay put.
+            Bring your real numbers. Andres will give you the honest version, even if the answer is to stay put.
           </p>
           <div className="mt-8"><CtaButton cta={`compare_${c.slug}_footer`} light /></div>
         </div>
@@ -107,7 +107,7 @@ export function ComparePage({ company: c }) {
         </ul>
         <p className="mt-3">
           Based on publicly available information as of {ASOF}. Compensation and fees change and can vary by loan
-          officer, branch, and state — confirm current terms directly before making a decision. This page is for
+          officer, branch, and state. Confirm current terms directly before making a decision. This page is for
           mortgage professionals and is not an offer to lend. NEXA is not affiliated with {c.name}, whose name is a
           trademark of its respective owner.
         </p>

@@ -4,6 +4,7 @@ import { CompareHub } from "./compare/CompareHub.jsx"
 import { ComparePage } from "./compare/ComparePage.jsx"
 import { compareFaqs } from "./compare/faqs.js"
 import { ASOF, companyList } from "./compare/companies.js"
+import { PrivacyPage } from "./PrivacyPage.jsx"
 
 export const SITE_URL = "https://nexavsretail.com"
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
@@ -40,7 +41,7 @@ export const routes = [
     description:
       "Retail vs. broker for loan officers: on NEXA Lending's standard plan, NEXA keeps 54 bps per loan and you keep the rest. Compare comp, support, and branding, run your numbers, and book a no-pressure call with Andres Aviles.",
     ogDescription:
-      "What loan officers actually keep at a retail lender vs. NEXA Lending — with a calculator for your own volume and bps.",
+      "What loan officers actually keep at a retail lender vs. NEXA Lending, with a calculator for your own volume and bps.",
     Component: App,
     jsonLd: [
       {
@@ -83,7 +84,7 @@ routes.push({
   path: "/compare",
   file: "compare.html",
   title: "Compare Mortgage Companies for Loan Officers: NEXA vs Barrett, Chase, Rocket & PNC",
-  description: `An honest look at where loan officers keep more: NEXA Lending compared with Barrett Financial, Chase, Rocket Mortgage, and PNC — comp models, fees, licensing, and a calculator. Updated ${ASOF}.`,
+  description: `An honest look at where loan officers keep more: NEXA Lending compared with Barrett Financial, Chase, Rocket Mortgage, and PNC: comp models, fees, licensing, and a calculator. Updated ${ASOF}.`,
   Component: CompareHub,
   jsonLd: [
     webPage("/compare", "Compare Mortgage Companies for Loan Officers", "Loan officer comp and model comparison."),
@@ -108,6 +109,15 @@ for (const c of companyList) {
     ],
   })
 }
+
+routes.push({
+  path: "/privacy",
+  file: "privacy.html",
+  title: "Privacy Policy | NEXA vs Retail",
+  description: "How nexavsretail.com collects and uses information, including booking details, analytics, and Google Ads measurement.",
+  Component: PrivacyPage,
+  jsonLd: [crumbs([["Home", "/"], ["Privacy policy", "/privacy"]])],
+})
 
 /** Normalize a browser pathname ("/compare/", "/index.html") to a route. */
 export function findRoute(pathname) {

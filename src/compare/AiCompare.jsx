@@ -123,11 +123,11 @@ export function AiCompare() {
           </button>
         </form>
 
-        {status === "loading" && <p className="mt-6 text-sm text-slate-600" aria-live="polite">Looking up how they pay loan officers — hang tight…</p>}
+        {status === "loading" && <p className="mt-6 text-sm text-slate-600" aria-live="polite">Looking up how they pay loan officers, hang tight…</p>}
         {status === "error" && <p className="mt-6 text-sm text-red-700" role="alert">{error}</p>}
         {status === "done" && data && !data.found && (
           <p className="mt-6 text-slate-700" aria-live="polite">
-            We couldn't find published details for that company. That's common — the fastest way to compare is a quick
+            We couldn't find published details for that company. That's common. The fastest way to compare is a quick
             conversation with Andres.
           </p>
         )}
@@ -157,7 +157,7 @@ export function AiCompare() {
                       <td className="py-2.5 text-right tabular-nums">{usd.format(Math.max(0, theirs.value))}</td>
                     </tr>
                     <tr className="border-t border-slate-100">
-                      <th scope="row" className="py-2.5 font-medium">NEXA — standard plan <span className="font-normal text-slate-500">({nexa.defaultGrossBps} bps gross)</span></th>
+                      <th scope="row" className="py-2.5 font-medium">NEXA, standard plan <span className="font-normal text-slate-500">({nexa.defaultGrossBps} bps gross)</span></th>
                       <td className="py-2.5 text-right tabular-nums">{usd.format(Math.max(0, ours))}</td>
                     </tr>
                   </tbody>
@@ -182,7 +182,7 @@ export function AiCompare() {
             <p className="mt-4 text-xs leading-5 text-slate-500">
               AI-generated estimate from publicly available sources, researched{" "}
               {new Date(data.researchedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" })}. It may be
-              incomplete or out of date and isn't a statement by that company — confirm details directly. For mortgage
+              incomplete or out of date and isn't a statement by that company. Confirm details directly. For mortgage
               professionals; not an offer to lend. NEXA is not affiliated with {data.name}.
             </p>
           </div>

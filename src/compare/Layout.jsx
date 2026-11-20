@@ -1,14 +1,7 @@
 import LicenseNotice from "../LicenseNotice"
-export const CALENDLY_URL = "https://calendly.com/aaviles-nexalending/30min"
-
-function track(cta) {
-  try {
-    if (window?.gtag) window.gtag("event", "cta_click", { cta })
-    if (window?.dataLayer) window.dataLayer.push({ event: "cta_click", payload: { cta } })
-  } catch {
-    /* analytics is optional */
-  }
-}
+import { BookingModal } from "../Booking.jsx"
+import { CALENDLY_URL, bookingClick } from "../booking-actions.js"
+export { CALENDLY_URL }
 
 export function CtaButton({ cta, children = "Book a 30-minute call", light = false }) {
   return (
@@ -16,7 +9,7 @@ export function CtaButton({ cta, children = "Book a 30-minute call", light = fal
       href={CALENDLY_URL}
       target="_blank"
       rel="noreferrer"
-      onClick={() => track(cta)}
+      onClick={bookingClick(cta)}
       className={
         light
           ? "inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
@@ -70,11 +63,13 @@ export function CompareLayout({ crumbs = [], children }) {
           <div className="flex flex-wrap gap-4">
             <a href="/" className="transition hover:text-slate-900">Why NEXA</a>
             <a href="/compare" className="transition hover:text-slate-900">Compare lenders</a>
+            <a href="/privacy" className="transition hover:text-slate-900">Privacy</a>
             <a href="https://www.andresaviles.com" className="transition hover:text-slate-900">Andres Aviles · NMLS #2640511</a>
           </div>
         </div>
         <LicenseNotice className="max-w-6xl px-4 sm:px-6" />
       </footer>
+      <BookingModal />
     </div>
   )
 }

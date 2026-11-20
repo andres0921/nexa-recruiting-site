@@ -12,6 +12,9 @@ import {
   X,
 } from "lucide-react"
 import LicenseNotice from "./LicenseNotice"
+import { BookingModal } from "./Booking.jsx"
+import { CALENDLY_URL, openBooking } from "./booking-actions.js"
+import { trackConversion } from "./analytics.js"
 
 const NAV_LINKS = [
   ["#why-nexa", "Why NEXA"],
@@ -190,7 +193,7 @@ export default function NEXARecruitingSite() {
     if (formGoals.trim()) params.set("a2", formGoals.trim())
 
     const query = params.toString()
-    return `https://calendly.com/aaviles-nexalending/30min${query ? `?${query}` : ""}`
+    return `${CALENDLY_URL}${query ? `?${query}` : ""}`
   }, [formName, formEmail, formCompany, formGoals])
 
   const [applyInView, setApplyInView] = useState(false)
@@ -399,7 +402,7 @@ export default function NEXARecruitingSite() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Mindset shift</p>
               <h3 className="mt-3 text-2xl font-semibold text-slate-950">You're not just joining a brokerage. You're building your platform.</h3>
               <p className="mt-6 leading-7 text-slate-600">
-                The most successful originators treat their mortgage business like a real company. NEXA is designed for that type of professional — someone who wants freedom, scalability, and a long-term growth platform.
+                The most successful originators treat their mortgage business like a real company. NEXA is designed for that type of professional: someone who wants freedom, scalability, and a long-term growth platform.
               </p>
             </div>
           </div>
@@ -424,7 +427,7 @@ export default function NEXARecruitingSite() {
             <ul className="mt-6 space-y-3 text-slate-600">
               {RETAIL_MODEL_POINTS.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 text-slate-400">—</span>
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-300" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -451,7 +454,7 @@ export default function NEXARecruitingSite() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Income illustration</p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">Potential to earn the same income with less volume</h2>
           <p className="mt-5 text-lg text-slate-600">
-            Many producing loan officers discover that the economics of the NEXA model can allow them to generate similar or greater income while closing fewer loans — which can mean fewer hours, less stress, and more control over their schedule.
+            Many producing loan officers discover that the economics of the NEXA model can allow them to generate similar or greater income while closing fewer loans, which can mean fewer hours, less stress, and more control over their schedule.
           </p>
         </div>
 
@@ -555,10 +558,10 @@ export default function NEXARecruitingSite() {
 
                 <div className="relative mt-6">
                   <div className={`grid gap-4 md:grid-cols-2 xl:grid-cols-4 transition ${calculatorReady ? "opacity-100" : "opacity-30 blur-[2px]"}`}>
-                    <StatCard label="Current estimated income" value={calculatorReady ? formatCurrency(calculator.retailIncome) : "—"} />
-                    <StatCard label="Volume needed at NEXA" value={calculatorReady ? formatMillions(calculator.equivalentNexaVolume) : "—"} accent />
-                    <StatCard label="Annual volume reduction" value={calculatorReady ? formatMillions(calculator.volumeReduction) : "—"} />
-                    <StatCard label="Time back" value={calculatorReady ? `${calculator.weeklyHoursBack.toFixed(1)} hrs/wk` : "—"} accent />
+                    <StatCard label="Current estimated income" value={calculatorReady ? formatCurrency(calculator.retailIncome) : "–"} />
+                    <StatCard label="Volume needed at NEXA" value={calculatorReady ? formatMillions(calculator.equivalentNexaVolume) : "–"} accent />
+                    <StatCard label="Annual volume reduction" value={calculatorReady ? formatMillions(calculator.volumeReduction) : "–"} />
+                    <StatCard label="Time back" value={calculatorReady ? `${calculator.weeklyHoursBack.toFixed(1)} hrs/wk` : "–"} accent />
                   </div>
 
                   {!calculatorReady && (
@@ -621,7 +624,7 @@ export default function NEXARecruitingSite() {
                   <div className="max-w-4xl">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Key takeaway</div>
                     <p className="mt-3 text-lg leading-8 text-indigo-100">
-                      Based on this illustration, stronger economics may allow you to keep your income while reducing the amount of volume you need to close. That can translate into real hours back each week — fewer files, fewer nights, fewer weekends, and more control over how you grow.
+                      Based on this illustration, stronger economics may allow you to keep your income while reducing the amount of volume you need to close. That can translate into real hours back each week: fewer files, fewer nights, fewer weekends, and more control over how you grow.
                     </p>
                   </div>
                 </div>
@@ -771,42 +774,78 @@ export default function NEXARecruitingSite() {
             </p>
           </div>
 
-          <div className="mt-10 rounded-[1.75rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              openBooking("apply_form", calendlyUrl)
+            }}
+            className="mt-10 rounded-[1.75rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur-sm"
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
                 placeholder="Name"
+                aria-label="Name"
+                autoComplete="name"
                 value={formName}
                 onChange={(e) => setFormName(e.target.value)}
               />
               <input
+                type="email"
                 className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
                 placeholder="Email"
+                aria-label="Email"
+                autoComplete="email"
                 value={formEmail}
                 onChange={(e) => setFormEmail(e.target.value)}
               />
               <input
                 className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
-                placeholder="Company"
+                placeholder="Current company"
+                aria-label="Current company"
+                autoComplete="organization"
                 value={formCompany}
                 onChange={(e) => setFormCompany(e.target.value)}
               />
               <textarea
                 className="min-h-[140px] rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
-                placeholder="Goals"
+                placeholder="What are you hoping to change? (optional)"
+                aria-label="Goals"
                 value={formGoals}
                 onChange={(e) => setFormGoals(e.target.value)}
               />
-              <a
-                href={calendlyUrl}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="submit"
                 className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100 sm:col-span-2"
               >
-                Request Conversation
-              </a>
+                Pick a Time to Talk
+              </button>
             </div>
-          </div>
+            <p className="mt-3 text-center text-xs text-indigo-100/80">
+              Your details only pre-fill the booking calendar. See our{" "}
+              <a href="/privacy" className="underline underline-offset-2 hover:text-white">privacy policy</a>.
+            </p>
+          </form>
+
+          <p className="mt-6 text-center text-sm text-indigo-100">
+            Rather text or call?{" "}
+            <a
+              href="sms:+12149085914"
+              onClick={() => trackConversion("contact_click", { method: "sms" })}
+              className="font-semibold text-white underline underline-offset-4 hover:text-indigo-200"
+            >
+              Text 214-908-5914
+            </a>
+            {" "}or{" "}
+            <a
+              href="tel:+12149085914"
+              onClick={() => trackConversion("contact_click", { method: "call" })}
+              className="font-semibold text-white underline underline-offset-4 hover:text-indigo-200"
+            >
+              call
+            </a>
+            .
+          </p>
 
           <p className="mt-6 text-center text-sm text-indigo-100">
             Already decided NEXA is the right fit?{" "}
@@ -814,6 +853,7 @@ export default function NEXARecruitingSite() {
               href="https://loanofficersupport.com/r/Andres27520"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackConversion("application_click")}
               className="font-semibold text-white underline underline-offset-4 hover:text-indigo-200"
             >
               Start your NEXA application
@@ -830,6 +870,7 @@ export default function NEXARecruitingSite() {
           <nav className="flex flex-wrap gap-4">
             <a href="#faq" className="hover:text-indigo-600">FAQ</a>
             <a href="/compare" className="hover:text-indigo-600">Compare lenders</a>
+            <a href="/privacy" className="hover:text-indigo-600">Privacy</a>
             <a href="#apply" className="font-semibold text-slate-900 hover:text-indigo-600">Book a call</a>
           </nav>
         </div>
@@ -838,6 +879,7 @@ export default function NEXARecruitingSite() {
           For mortgage professionals; not an offer to lend. Income examples are illustrations, not guarantees.
         </p>
       </footer>
+      <BookingModal />
     </div>
   )
 }
