@@ -5,6 +5,10 @@
  * While they're blank, nothing loads and every helper is a safe no-op,
  * so the site works the same before the Ads account is ready.
  *
+ * Google Tag Manager (GTM-KJ2N9SXK) is loaded in index.html and receives every
+ * event below as a dataLayer event. If you set up your Ads conversions inside
+ * GTM, leave these IDs blank so conversions aren't counted twice.
+ *
  * Where to find them in Google Ads:
  *   Goals > Conversions > New conversion action > Website > "Use Google tag"
  *   The tag shows "AW-XXXXXXXXX/AbCdEfGhIj"; the part before the slash is
@@ -79,10 +83,16 @@ export function initAnalytics() {
   document.head.appendChild(s)
 }
 
-/** Plain analytics event (GA4 + dataLayer). */
+/**
+ * Plain analytics event. Always pushed to the dataLayer as { event: name, ... }
+ * so Google Tag Manager (GTM-KJ2N9SXK, loaded in index.html) can trigger on it
+ * with a Custom Event trigger. Also sent via gtag when the direct tag is used.
+ */
 export function trackEvent(name, params = {}) {
   if (!isBrowser()) return
   try {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: name, ...params, ...getAttribution() })
     window.gtag?.("event", name, params)
   } catch {
     /* analytics is optional */
