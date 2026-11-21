@@ -1,6 +1,6 @@
 import { trackEvent } from "./analytics.js"
 
-export const CALENDLY_URL = "https://calendly.com/aaviles-nexalending/30min"
+export const CALENDLY_URL = "https://calendly.com/aaviles-nexalending/let-s-meet"
 export const OPEN_EVENT = "nexa:open-booking"
 
 /**
