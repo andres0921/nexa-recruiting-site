@@ -12,8 +12,7 @@ import {
   X,
 } from "lucide-react"
 import LicenseNotice from "./LicenseNotice"
-import { BookingModal } from "./Booking.jsx"
-import { CALENDLY_URL, openBooking } from "./booking-actions.js"
+import { InlineBooking } from "./Booking.jsx"
 import { trackConversion } from "./analytics.js"
 
 const NAV_LINKS = [
@@ -154,10 +153,6 @@ export default function NEXARecruitingSite() {
   const [retailVolume, setRetailVolume] = useState("")
   const [retailBps, setRetailBps] = useState("")
   const [nexaBps, setNexaBps] = useState("")
-  const [formName, setFormName] = useState("")
-  const [formEmail, setFormEmail] = useState("")
-  const [formCompany, setFormCompany] = useState("")
-  const [formGoals, setFormGoals] = useState("")
 
   const calculatorReady = hasCalculatorInputs(retailVolume, retailBps, nexaBps)
 
@@ -185,16 +180,6 @@ export default function NEXARecruitingSite() {
   const formatCurrency = (value) => USD_FORMATTER.format(value)
   const formatMillions = (value) => `${value.toFixed(1)}M`
 
-  const calendlyUrl = useMemo(() => {
-    const params = new URLSearchParams()
-    if (formName.trim()) params.set("name", formName.trim())
-    if (formEmail.trim()) params.set("email", formEmail.trim())
-    if (formCompany.trim()) params.set("a1", formCompany.trim())
-    if (formGoals.trim()) params.set("a2", formGoals.trim())
-
-    const query = params.toString()
-    return `${CALENDLY_URL}${query ? `?${query}` : ""}`
-  }, [formName, formEmail, formCompany, formGoals])
 
   const [applyInView, setApplyInView] = useState(false)
   useEffect(() => {
@@ -774,58 +759,9 @@ export default function NEXARecruitingSite() {
             </p>
           </div>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault()
-              openBooking("apply_form", calendlyUrl)
-            }}
-            className="mt-10 rounded-[1.75rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur-sm"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <input
-                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
-                placeholder="Name"
-                aria-label="Name"
-                autoComplete="name"
-                value={formName}
-                onChange={(e) => setFormName(e.target.value)}
-              />
-              <input
-                type="email"
-                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20"
-                placeholder="Email"
-                aria-label="Email"
-                autoComplete="email"
-                value={formEmail}
-                onChange={(e) => setFormEmail(e.target.value)}
-              />
-              <input
-                className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
-                placeholder="Current company"
-                aria-label="Current company"
-                autoComplete="organization"
-                value={formCompany}
-                onChange={(e) => setFormCompany(e.target.value)}
-              />
-              <textarea
-                className="min-h-[140px] rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 focus:ring-white/20 sm:col-span-2"
-                placeholder="What are you hoping to change? (optional)"
-                aria-label="Goals"
-                value={formGoals}
-                onChange={(e) => setFormGoals(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100 sm:col-span-2"
-              >
-                Pick a Time to Talk
-              </button>
-            </div>
-            <p className="mt-3 text-center text-xs text-indigo-100/80">
-              Your details only pre-fill the booking calendar. See our{" "}
-              <a href="/privacy" className="underline underline-offset-2 hover:text-white">privacy policy</a>.
-            </p>
-          </form>
+          <div className="mt-10">
+            <InlineBooking cta="apply_inline" />
+          </div>
 
           <p className="mt-6 text-center text-sm text-indigo-100">
             Rather text or call?{" "}
@@ -879,7 +815,6 @@ export default function NEXARecruitingSite() {
           For mortgage professionals; not an offer to lend. Income examples are illustrations, not guarantees.
         </p>
       </footer>
-      <BookingModal />
     </div>
   )
 }
