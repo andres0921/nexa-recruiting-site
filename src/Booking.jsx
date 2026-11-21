@@ -82,6 +82,7 @@ export function BookingModal() {
  */
 export function InlineBooking({ cta = "inline_calendar" }) {
   const [src, setSrc] = useState("")
+  const [height, setHeight] = useState(null)
   const boxRef = useRef(null)
 
   // Load Calendly only when the visitor gets near the calendar (keeps the first page load fast).
@@ -109,6 +110,11 @@ export function InlineBooking({ cta = "inline_calendar" }) {
   useEffect(() => {
     const onMessage = (e) => {
       if (e.origin !== "https://calendly.com" || typeof e.data?.event !== "string") return
+      // Calendly reports its content height; grow the frame so nothing scrolls inside it.
+      if (e.data.event === "calendly.page_height") {
+        const h = parseInt(e.data.payload?.height, 10)
+        if (Number.isFinite(h) && h > 300) setHeight(h)
+      }
       if (e.data.event === "calendly.date_and_time_selected") trackEvent("booking_time_selected", { cta })
       if (e.data.event === "calendly.event_scheduled") trackConversion("booked_call", { cta })
     }
@@ -123,7 +129,9 @@ export function InlineBooking({ cta = "inline_calendar" }) {
           title="Pick a time to talk with Andres Aviles"
           src={src}
           loading="lazy"
-          className="block h-[760px] w-full border-0 sm:h-[700px]"
+          scrolling="no"
+          style={height ? { height: `${height}px` } : undefined}
+          className={`block w-full overflow-hidden border-0 ${height ? "" : "h-[1100px] sm:h-[760px]"}`}
         />
       ) : (
         <div className="flex h-[700px] items-center justify-center text-sm text-slate-500">Loading calendar…</div>
