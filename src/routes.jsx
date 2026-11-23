@@ -110,6 +110,46 @@ for (const c of companyList) {
   })
 }
 
+const sitePages = [
+  {
+    page: "why-nexa",
+    title: "Why Loan Officers Move From Retail to NEXA | NEXA vs Retail",
+    description: "Retail vs broker for producing loan officers: how NEXA Lending's model works, who it fits, what you keep per loan, and a no-pressure call with Andres Aviles.",
+    name: "Why NEXA",
+  },
+  {
+    page: "calculator",
+    title: "Loan Officer Comp Calculator: Retail vs NEXA | NEXA vs Retail",
+    description: "Enter your annual volume and bps to compare retail loan officer comp with NEXA Lending's broker model, and see the volume and time difference.",
+    name: "Calculator",
+  },
+  {
+    page: "faq",
+    title: "NEXA Loan Officer FAQ: Comp, NEXA100, Support | NEXA vs Retail",
+    description: "Answers for loan officers considering NEXA Lending: how comp works (NEXA keeps 54 bps on the standard plan), NEXA100, support, branding, and the transition.",
+    name: "FAQ",
+    extra: [faqSchema(FAQ_ITEMS)],
+  },
+  {
+    page: "book",
+    title: "Book a Call With Andres Aviles | NEXA vs Retail",
+    description: "Pick a time for a confidential, no-pressure call with Andres Aviles (NEXA Lending, NMLS #2640511) about moving from retail to the NEXA broker model.",
+    name: "Book a call",
+  },
+]
+
+for (const p of sitePages) {
+  const path = `/${p.page}`
+  routes.push({
+    path,
+    file: `${p.page}.html`,
+    title: p.title,
+    description: p.description,
+    Component: () => <App page={p.page} />,
+    jsonLd: [webPage(path, p.title, p.description), crumbs([["Home", "/"], [p.name, path]]), ...(p.extra ?? [])],
+  })
+}
+
 routes.push({
   path: "/privacy",
   file: "privacy.html",

@@ -16,10 +16,9 @@ import { InlineBooking } from "./Booking.jsx"
 import { trackConversion } from "./analytics.js"
 
 const NAV_LINKS = [
-  ["#why-nexa", "Why NEXA"],
-  ["#comparison", "Compare"],
-  ["#calculator", "Calculator"],
-  ["#faq", "FAQ"],
+  ["/why-nexa", "Why NEXA"],
+  ["/calculator", "Calculator"],
+  ["/faq", "FAQ"],
   ["/compare", "Compare Lenders"],
 ]
 
@@ -147,7 +146,68 @@ function InsightCard({ eyebrow, title, copy, dark = false }) {
   )
 }
 
-export default function NEXARecruitingSite() {
+/** Which homepage sections each standalone page shows (the homepage shows all). */
+const PAGE_SECTIONS = {
+  "why-nexa": ["why", "ideal", "comparison", "income", "meet"],
+  calculator: ["income", "calculator", "resource"],
+  faq: ["faq"],
+  book: ["apply"],
+}
+
+const PAGE_INTROS = {
+  "why-nexa": {
+    eyebrow: "Why NEXA",
+    title: "Why producing loan officers move from retail to NEXA",
+    copy: "How the broker model differs from retail, who it fits best, and what the numbers can look like. Straight answers, no pitch.",
+  },
+  calculator: {
+    eyebrow: "LO comp calculator",
+    title: "Loan officer comp calculator: retail vs NEXA",
+    copy: "Plug in your annual volume and bps to see what the same income could look like on the NEXA model, and how much time that could give back.",
+  },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Loan officer questions about NEXA, answered",
+    copy: "Comp, NEXA100, support, branding, and what the move from retail actually looks like.",
+  },
+}
+
+function PageIntro({ eyebrow, title, copy }) {
+  return (
+    <section className="border-b border-slate-200 bg-[linear-gradient(to_bottom_right,_#eef2ff,_#ffffff,_#eff6ff)]">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">{eyebrow}</p>
+        <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">{title}</h1>
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{copy}</p>
+      </div>
+    </section>
+  )
+}
+
+function BookCta() {
+  return (
+    <section className="bg-gradient-to-br from-slate-950 via-indigo-700 to-indigo-600 text-white">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center lg:px-8">
+        <h2 className="text-3xl font-semibold sm:text-4xl">Want to walk through your own numbers?</h2>
+        <p className="max-w-2xl text-lg text-indigo-100">
+          Book a confidential call with Andres. No pressure, just a clear look at whether the model fits your goals.
+        </p>
+        <a
+          href="/book"
+          className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100"
+        >
+          Pick a time to talk
+          <ArrowRight className="h-4 w-4" />
+        </a>
+      </div>
+    </section>
+  )
+}
+
+export default function NEXARecruitingSite({ page = "home" }) {
+  const isHome = page === "home"
+  const show = (key) => isHome || (PAGE_SECTIONS[page] ?? []).includes(key)
+  const ApplyHeading = page === "book" ? "h1" : "h2"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
   const [retailVolume, setRetailVolume] = useState("")
@@ -193,7 +253,7 @@ export default function NEXARecruitingSite() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <a
-        href="#apply"
+        href="/book"
         aria-hidden={applyInView}
         tabIndex={applyInView ? -1 : 0}
         className={`${applyInView ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"} fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-2xl ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:bg-indigo-600 duration-300`}
@@ -204,7 +264,7 @@ export default function NEXARecruitingSite() {
 
       <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl shadow-sm transition-all">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
-          <a href="#top" className="flex items-end gap-4">
+          <a href="/" className="flex items-end gap-4">
             <img
               src="/NEXAMortgage.png"
               alt="NEXA Lending"
@@ -229,7 +289,7 @@ export default function NEXARecruitingSite() {
 
           <div className="hidden md:block">
             <a
-              href="#apply"
+              href="/book"
               className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-600"
             >
               Book a Call
@@ -262,7 +322,7 @@ export default function NEXARecruitingSite() {
                 </a>
               ))}
               <a
-                href="#apply"
+                href="/book"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white"
               >
@@ -274,6 +334,9 @@ export default function NEXARecruitingSite() {
         )}
       </header>
 
+      {PAGE_INTROS[page] && <PageIntro {...PAGE_INTROS[page]} />}
+
+{isHome && (
       <section
         id="top"
         style={{ scrollMarginTop: "7rem" }}
@@ -295,13 +358,13 @@ export default function NEXARecruitingSite() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
-                href="#apply"
+                href="/book"
                 className="rounded-2xl bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg transition hover:scale-[1.02]"
               >
                 Schedule a Private Conversation
               </a>
               <a
-                href="#why-nexa"
+                href="/why-nexa"
                 className="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-900 shadow-sm"
               >
                 Learn How The Model Works
@@ -345,7 +408,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
 
+{show("why") && (
       <section id="why-nexa" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Why experienced loan officers explore NEXA</p>
@@ -366,7 +431,9 @@ export default function NEXARecruitingSite() {
           ))}
         </div>
       </section>
+      )}
 
+{show("ideal") && (
       <section id="ideal-lo" style={{ scrollMarginTop: "7rem" }} className="border-y border-slate-200 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="grid gap-6 lg:grid-cols-2">
@@ -393,7 +460,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
 
+{show("comparison") && (
       <section id="comparison" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Model comparison</p>
@@ -433,7 +502,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
 
+{show("income") && (
       <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Income illustration</p>
@@ -466,7 +537,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
 
+{show("calculator") && (
       <section id="calculator" style={{ scrollMarginTop: "7rem" }} className="border-y border-slate-200 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="mx-auto max-w-3xl text-center lg:text-left">
@@ -618,6 +691,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
+
+      {show("resource") && (
 <section className="border-y border-slate-200 bg-white">
   <div className="mx-auto max-w-5xl px-6 py-20 lg:px-8">
     <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-sm">
@@ -681,6 +757,9 @@ export default function NEXARecruitingSite() {
     </div>
   </div>
 </section>
+      )}
+
+{show("meet") && (
       <section id="meet-andres" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:items-start">
           <div className="flex justify-center lg:block">
@@ -711,7 +790,7 @@ export default function NEXARecruitingSite() {
               Andres Aviles · Loan Officer, NEXA Lending · NMLS #2640511 · Realtor, AXEN Realty · TREC #0680266
             </p>
             <a
-              href="#apply"
+              href="/book"
               className="mt-8 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5"
             >
               Talk to Andres
@@ -719,6 +798,9 @@ export default function NEXARecruitingSite() {
           </div>
         </div>
       </section>
+      )}
+
+{show("faq") && (
       <section id="faq" style={{ scrollMarginTop: "7rem" }} className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Common questions</p>
@@ -748,12 +830,14 @@ export default function NEXARecruitingSite() {
           })}
         </div>
       </section>
+      )}
 
+{show("apply") && (
       <section id="apply" style={{ scrollMarginTop: "7rem" }} className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-700 to-indigo-600 text-white">
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Private recruiting conversation</p>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Curious what your business could look like at NEXA?</h2>
+            <ApplyHeading className="mt-3 text-3xl font-semibold sm:text-4xl">Curious what your business could look like at NEXA?</ApplyHeading>
             <p className="mt-4 text-lg text-indigo-100">
               Schedule a confidential conversation. No pressure, just a clear look at how the model works and whether it fits your goals.
             </p>
@@ -797,6 +881,9 @@ export default function NEXARecruitingSite() {
           </p>
         </div>
       </section>
+      )}
+
+      {!isHome && page !== "book" && <BookCta />}
 
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:px-8">
@@ -804,10 +891,12 @@ export default function NEXARecruitingSite() {
             NEXA vs Retail · <a href="https://www.andresaviles.com" className="font-semibold text-slate-900 hover:text-indigo-600">Andres Aviles</a>, NMLS #2640511 · NEXA Lending
           </p>
           <nav className="flex flex-wrap gap-4">
-            <a href="#faq" className="hover:text-indigo-600">FAQ</a>
+            <a href="/why-nexa" className="hover:text-indigo-600">Why NEXA</a>
+            <a href="/calculator" className="hover:text-indigo-600">Calculator</a>
+            <a href="/faq" className="hover:text-indigo-600">FAQ</a>
             <a href="/compare" className="hover:text-indigo-600">Compare lenders</a>
             <a href="/privacy" className="hover:text-indigo-600">Privacy</a>
-            <a href="#apply" className="font-semibold text-slate-900 hover:text-indigo-600">Book a call</a>
+            <a href="/book" className="font-semibold text-slate-900 hover:text-indigo-600">Book a call</a>
           </nav>
         </div>
         <LicenseNotice />
