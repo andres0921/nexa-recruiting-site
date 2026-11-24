@@ -1,0 +1,387 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-11-23 18:25:00",
+  "containerVersion": {
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "container": {
+      "accountId": "0",
+      "containerId": "0",
+      "name": "nexavsretail.com extra Ads conversions (merge only)",
+      "publicId": "GTM-KJ2N9SXK",
+      "usageContext": [
+        "WEB"
+      ]
+    },
+    "tag": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "900101",
+        "name": "Google Ads Conversion - booking_time_selected",
+        "type": "awct",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableConversionLinker",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableShippingData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionId",
+            "value": "18004514734"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionLabel",
+            "value": "PLACEHOLDER0bookingtime0"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "rdp",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "{{Page URL}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomerLifecycleReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEnhancedConversionsCheckbox",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableRdpCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableTransportUrl",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomParams",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEventParameters",
+            "value": "true"
+          }
+        ],
+        "firingTriggerId": [
+          "900001"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "900102",
+        "name": "Google Ads Conversion - contact_click",
+        "type": "awct",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableConversionLinker",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableShippingData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionId",
+            "value": "18004514734"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionLabel",
+            "value": "PLACEHOLDER0contactclick0"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "rdp",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "{{Page URL}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomerLifecycleReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEnhancedConversionsCheckbox",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableRdpCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableTransportUrl",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomParams",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEventParameters",
+            "value": "true"
+          }
+        ],
+        "firingTriggerId": [
+          "900002"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "900103",
+        "name": "Google Ads Conversion - application_click",
+        "type": "awct",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableConversionLinker",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableShippingData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionId",
+            "value": "18004514734"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "conversionLabel",
+            "value": "PLACEHOLDER0application0"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "rdp",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "{{Page URL}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableProductReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableNewCustomerReportingCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomerLifecycleReporting",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEnhancedConversionsCheckbox",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableRdpCheckbox",
+            "value": "true"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableTransportUrl",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableCustomParams",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEventParameters",
+            "value": "true"
+          }
+        ],
+        "firingTriggerId": [
+          "900003"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "900001",
+        "name": "CE - booking_time_selected",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "booking_time_selected"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "900002",
+        "name": "CE - contact_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "contact_click"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "900003",
+        "name": "CE - application_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "application_click"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "PAGE_URL",
+        "name": "Page URL"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "EVENT",
+        "name": "Event"
+      }
+    ]
+  }
+}
